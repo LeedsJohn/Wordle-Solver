@@ -7,3 +7,5 @@ word lists I used for this as I found them from someone else. Please check out t
 
 Ultimately, this solver takes 3.8 guesses on average to solve Wordle. However, there are roughly 20 words (out of several thousand) where it fails to solve
 Wordle in <=6 guesses.
+
+![image](https://user-images.githubusercontent.com/94880155/163911620-561588df-6520-47f3-8f83-10b68639918d.png)
