@@ -6,6 +6,7 @@
 #ifndef WORDLIST_HDR
 #define WORDLIST_HDR
 #include <string>
+#include <vector>
 #include "CharInfo.h"
 #include "Word.h"
 
@@ -31,7 +32,7 @@ class WordList{
         std::string& getBestWord() const;
 
     private:
-        vector<Word> words;
+        std::vector<Word> words;
 
         /*
         readFile
