@@ -36,7 +36,7 @@ class Word{
         getWord
         Returns the word
         */
-        string& getWord() const;
+        std::string& getWord() const;
 
     private:
         std::string& word;

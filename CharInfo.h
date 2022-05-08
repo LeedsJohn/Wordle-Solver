@@ -23,9 +23,9 @@ class CharInfo{
         void update(Guess& g);
     
     private:
-        map<char, bool> greens[5];
-        map<char, bool> yellows;
-        map<char, bool> grays;
+        std::map<char, bool> greens[5];
+        std::map<char, bool> yellows;
+        std::map<char, bool> grays;
 };
 
 #endif
