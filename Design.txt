@@ -22,7 +22,7 @@ Board:
         WordList guesses
         WordList answers
         CharInfo
-        
+
         
 CharInfo:
     public:
@@ -58,6 +58,8 @@ Word:
 
         int getWordScore(charInfo)
 
+        string& getWord() const
+
     private:
         string word
 
@@ -71,6 +73,8 @@ Guess:
         char array(?) getResult() const
 
         string& getWord() const
+
+        string& getResult() const
 
     private:
         string word
