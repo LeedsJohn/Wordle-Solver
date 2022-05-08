@@ -1,0 +1,82 @@
+Algorithm:
+    1) Find a word by selecting highest valued word.
+        Finding highest valued word:
+        Assign a score to each letter in each position
+        Green: 3 points
+        Yellow: 2 points
+        Gray: 0 points
+    2) Make guess (gather info)
+    3) Update known info
+    4) Crop word lists
+
+Classes:
+    1) Board
+    2) WordList
+    3) Word
+    4) Guess
+    5) CharInfo
+
+Board:
+
+    private:
+        WordList guesses
+        WordList answers
+        CharInfo
+        
+        
+CharInfo:
+    public:
+        constructor
+        void update(Guess& g)
+    
+    private:
+        map yellows
+        map greys
+        array map[5] greens
+
+WordList:
+    public:
+        constructor(file name)
+
+        int updateWords(charInfo)
+            gets rid of words that are not a possible answer
+            Updates the value of words that are possible
+            returns the number of words it removed
+
+        string& getBestWord() const
+
+    private:
+        vector<Word> words
+
+Word:
+    public:
+        constructor
+
+        bool checkWord(charInfo) const
+            returns true if a word is a possible answer given the 
+            current known information
+
+        int getWordScore(charInfo)
+
+    private:
+        string word
+
+Guess:
+    public:
+        Guess()
+
+        void inputInfo()
+            Gets user input for word and result
+
+        char array(?) getResult() const
+
+        string& getWord() const
+
+    private:
+        string word
+        string result
+
+        string& inputWord() const
+            Gets the users word
+        string& inputResult() const
+            Gets result from guessing the word
