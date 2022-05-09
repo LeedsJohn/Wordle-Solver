@@ -48,6 +48,13 @@ class Guess{
         std::string& inputResult() const;
 
         /*
+        validateResult
+        Ensures that result is 5 characters and only contains
+        g, y, or x
+        */
+        bool validateResult(std::string& word) const;
+
+        /*
         inputWord
         Gets the last word
         */
