@@ -21,6 +21,13 @@ class CharInfo{
         Adds in the info to greens, yellows, and greys
         */
         void update(Guess& g);
+
+        // GETTERS
+        char* getGreens() const;
+
+        std::set<char> getYellows() const;
+
+        std::set<char> getGrays() const;
     
     private:
         char greens[5];

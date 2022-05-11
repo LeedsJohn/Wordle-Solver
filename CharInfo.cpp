@@ -43,3 +43,16 @@ void CharInfo::update(Guess &g)
         }
     }
 }
+
+// GETTERS
+char* CharInfo::getGreens() const{
+    return greens;
+}
+
+std::set<char> CharInfo::getYellows() const{
+    return yellows;
+}
+
+std::set<char> CharInfo::getGrays() const{
+    return grays;
+}
