@@ -22,7 +22,7 @@ public:
     Takes a word list and determines how frequently a character occurs
     and how many words would share a green
     */
-    void generateFrequencies(WordList wordlist);
+    void generateFrequencies(std::vector<Word> words);
 
     /*
     scoreWord
