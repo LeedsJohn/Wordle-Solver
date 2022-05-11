@@ -12,8 +12,8 @@
 /*
 Constructor
 */
-ValueFinder::ValueFinder(){
-
+ValueFinder::ValueFinder(std::vector<Word> words){
+    generateFrequencies(words);
 }
 
 /*
@@ -44,14 +44,8 @@ int ValueFinder::scoreWord(std::string &w) const
     int score = 0;
     for (int i = 0; i < 5; i++)
     {   
-        if (greens[i].find(w[i]) != greens[i].end())
-        {
-            score += greens[i][w[i]] * 2;
-        }
-        if (yellows.find(w[i]) != yellows.end())
-        {
-            score += yellows[w[i]];
-        }
+        score += greens[i].find(w[i])->second * 2;
+        score += yellows.find(w[i])->second;
     }
     return score;
 }

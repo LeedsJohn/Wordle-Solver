@@ -15,7 +15,7 @@ public:
     /*
     Constructor
     */
-    ValueFinder();
+    ValueFinder(std::vector<Word> words);
 
     /*
     generateFrequencies
@@ -32,8 +32,8 @@ public:
     int scoreWord(std::string &w) const;
 
 private:
-    std::map<char, int> yellows;
     std::map<char, int> greens[5];
+    std::map<char, int> yellows;
 };
 
 #endif
