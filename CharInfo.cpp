@@ -12,7 +12,9 @@
 constructor
 */
 CharInfo::CharInfo(){
-    int x = 5+5; // TODO figure out how this should be written
+    for ( int i = 0; i<5; i++ ){
+        greens[i] = '*';
+    }
 }
 
 /*
