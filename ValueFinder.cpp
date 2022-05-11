@@ -43,7 +43,7 @@ int ValueFinder::scoreWord(std::string &w) const
 {
     int score = 0;
     for (int i = 0; i < 5; i++)
-    {
+    {   
         if (greens[i].find(w[i]) != greens[i].end())
         {
             score += greens[i][w[i]] * 2;
