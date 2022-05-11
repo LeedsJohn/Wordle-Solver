@@ -10,19 +10,25 @@
 /*
 Constructor
 */
-Guess::Guess();
+Guess::Guess(){
+    result = "";
+    word = "";
+}
 
 /*
 inputInfo
 Gets user input and updates word and result
 */
-void Guess::inputInfo();
+void Guess::inputInfo(){
+    result = getResult();
+    word = getWord();
+}
 
 /*
 getResult
 Returns result
 */
-std::string& Guess::getResult() const{
+std::string Guess::getResult() const{
     return result;
 }
 
@@ -30,7 +36,7 @@ std::string& Guess::getResult() const{
 getWord
 Returns word
 */
-std::string& Guess::getWord() const{
+std::string Guess::getWord() const{
     return word;
 }
 
@@ -44,7 +50,7 @@ Enter one character for each character -
     y for yellow,
     x for gray
 */
-std::string& Guess::inputResult() const{
+std::string Guess::inputResult() const{
     std::cout << "Enter 5 characters representing the results of your guess." <<
         " Enter 'G' for green (correct position), 'Y' for yellow (incorrect position),"
         << " or 'X' if the letter was not in the word.\n";
@@ -82,7 +88,7 @@ bool Guess::validateResult(std::string& word) const{
 inputWord
 Gets the last word
 */
-std::string& Guess::inputWord() const{
+std::string Guess::inputWord() const{
     std::cout << "Enter your guess: ";
     std::string guessedWord;
     std::cin >> guessedWord;

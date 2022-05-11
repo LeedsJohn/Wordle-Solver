@@ -24,13 +24,13 @@ class Guess{
         getResult
         Returns result
         */
-        std::string& getResult() const;
+        std::string getResult() const;
 
         /*
         getWord
         Returns word
         */
-        std::string& getWord() const;
+        std::string getWord() const;
 
     private:
         std::string result;
@@ -45,7 +45,7 @@ class Guess{
             y for yellow,
             x for gray
         */
-        std::string& inputResult() const;
+        std::string inputResult() const;
 
         /*
         validateResult
@@ -58,7 +58,7 @@ class Guess{
         inputWord
         Gets the last word
         */
-        std::string& inputWord() const;
+        std::string inputWord() const;
 };
 
 #endif
