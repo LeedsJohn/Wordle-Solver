@@ -7,7 +7,7 @@
 #define VALUEFINDER_HDR
 #include <string>
 #include <map>
-#include "WordList.h"
+#include "Word.h"
 
 class ValueFinder
 {
