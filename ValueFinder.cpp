@@ -39,7 +39,7 @@ scoreWord
 Receives a string
 Returns an integer representing its value
 */
-int ValueFinder::scoreWord(std::string &w) const
+int ValueFinder::scoreWord(std::string w) const
 {
     int score = 0;
     for (int i = 0; i < 5; i++)

@@ -30,7 +30,7 @@ public:
     getBestWord
     Returns the word with the highest word value
     */
-    std::string getBestWord() const;
+    std::string getBestWord(ValueFinder evaluator) const;
 
 private:
     std::vector<Word> words;

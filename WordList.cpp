@@ -7,6 +7,7 @@
 #include <vector>
 #include <fstream> // used for reading file
 #include "CharInfo.h"
+#include "ValueFinder.h"
 #include "Word.h"
 #include "WordList.h"
 
@@ -30,7 +31,20 @@ int WordList::updateWords(CharInfo charinfo);
 getBestWord
 Returns the word with the highest word value
 */
-std::string WordList::getBestWord() const;
+std::string WordList::getBestWord(ValueFinder evaluator) const{
+    int maxScore = 0;
+    Word bestWord = words[0];
+    // TODO: change to using an iterator?
+    for ( size_t i = 0; i < words.size(); i++ ){
+        Word curWord = words[i];
+        int curScore = evaluator.scoreWord(curWord.getWord());
+        if ( curScore > maxScore ){
+            maxScore = curScore;
+            bestWord = words[i];
+        }
+    }
+    return bestWord.getWord();
+}
 
 /*
 readFile

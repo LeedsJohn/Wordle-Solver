@@ -29,7 +29,7 @@ public:
     Receives a string
     Returns an integer representing its value
     */
-    int scoreWord(std::string &w) const;
+    int scoreWord(std::string w) const;
 
 private:
     std::map<char, int> greens[5];
