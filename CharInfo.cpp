@@ -3,7 +3,7 @@
 // CharInfo.h
 // Header file for class CharInfo
 
-#include <map>
+#include <set>
 #include <string>
 #include "Guess.h"
 #include "CharInfo.h"
@@ -30,15 +30,16 @@ void CharInfo::update(Guess &g)
     {
         if (result[i] == 'X')
         {
-            grays.insert({word[i], true});
+            grays.insert(word[i]);
         }
         else if (result[i] == 'Y')
         {
-            yellows.insert({word[i], true});
+            yellows.insert(word[i]);
         }
         else
         {
             greens[i] = word[i];
+            yellows.insert(word[i]);
         }
     }
 }

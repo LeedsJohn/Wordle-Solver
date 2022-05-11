@@ -5,7 +5,7 @@
 
 #ifndef CHARINFO_HDR
 #define CHARINFO_HDR
-#include <map>
+#include <set>
 #include "Guess.h"
 
 class CharInfo{
@@ -24,8 +24,8 @@ class CharInfo{
     
     private:
         char greens[5];
-        std::map<char, bool> yellows;
-        std::map<char, bool> grays;
+        std::set<char> yellows;
+        std::set<char> grays;
 };
 
 #endif
