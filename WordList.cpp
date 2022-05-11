@@ -27,11 +27,13 @@ Removes unusable words from words
 */
 int WordList::updateWords(CharInfo charinfo)
 {
+    int count = 0;
     auto it = words.begin();
     while (it != words.end())
     {
         if (it->checkWord(charinfo))
         { // TODO: this might not work :D
+            count++;
             it = words.erase(it);
         }
         else
@@ -39,6 +41,7 @@ int WordList::updateWords(CharInfo charinfo)
             it++;
         }
     }
+    return count;
 }
 
 /*
