@@ -14,3 +14,6 @@ CharInfo.o: Guess.o CharInfo.h CharInfo.cpp
 	g++ -c CharInfo.cpp -o CharInfo.o
 Guess.o: Guess.cpp Guess.h
 	g++ -c Guess.cpp -o Guess.o
+
+clean:
+	rm *.o test
