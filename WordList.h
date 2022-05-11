@@ -10,36 +10,37 @@
 #include "CharInfo.h"
 #include "Word.h"
 
-class WordList{
-    public:
-        /*
-        Constructor
-        Receives a file name to create the word list from
-        */
-        WordList(std::string& fileName);
-        
-        /*
-        updateWords
-        Receives CharInfo
-        Removes unusable words from words
-        */
-        int updateWords(CharInfo charinfo);
+class WordList
+{
+public:
+    /*
+    Constructor
+    Receives a file name to create the word list from
+    */
+    WordList(std::string &fileName);
 
-        /*
-        getBestWord
-        Returns the word with the highest word value
-        */
-        std::string getBestWord() const;
+    /*
+    updateWords
+    Receives CharInfo
+    Removes unusable words from words
+    */
+    int updateWords(CharInfo charinfo);
 
-    private:
-        std::vector<Word> words;
+    /*
+    getBestWord
+    Returns the word with the highest word value
+    */
+    std::string getBestWord() const;
 
-        /*
-        readFile
-        Receives a file name to create a word list
-        Adds all the words to words
-        */
-        void readFile(std::string& fileName);
+private:
+    std::vector<Word> words;
+
+    /*
+    readFile
+    Receives a file name to create a word list
+    Adds all the words to words
+    */
+    void readFile(std::string &fileName);
 };
 
 #endif

@@ -14,7 +14,8 @@
 Constructor
 Receives a file name to create the word list from
 */
-WordList::WordList(std::string& fileName){
+WordList::WordList(std::string &fileName)
+{
     readFile(fileName);
 }
 
@@ -36,7 +37,7 @@ readFile
 Receives a file name to create a word list
 Adds all the words to words
 */
-void WordList::readFile(std::string& fileName)
+void WordList::readFile(std::string &fileName)
 {
     std::ifstream myFile(fileName);
     std::string str;

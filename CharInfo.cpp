@@ -11,8 +11,10 @@
 /*
 constructor
 */
-CharInfo::CharInfo(){
-    for ( int i = 0; i<5; i++ ){
+CharInfo::CharInfo()
+{
+    for (int i = 0; i < 5; i++)
+    {
         greens[i] = '*';
     }
 }
@@ -45,14 +47,17 @@ void CharInfo::update(Guess &g)
 }
 
 // GETTERS
-char* CharInfo::getGreens() const{
+char *CharInfo::getGreens() const
+{
     return greens;
 }
 
-std::set<char> CharInfo::getYellows() const{
+std::set<char> CharInfo::getYellows() const
+{
     return yellows;
 }
 
-std::set<char> CharInfo::getGrays() const{
+std::set<char> CharInfo::getGrays() const
+{
     return grays;
 }
