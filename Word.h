@@ -49,21 +49,21 @@ private:
     Returns true if a word should be eliminated based on having
     an incorrect character in a green position
     */
-    bool checkGreens(char greens[5]);
+    bool checkGreens(char greens[5]) const;
 
     /*
     checkYellow
     Helper function for update
     Returns true if
     */
-    bool checkYellows(std::set<char> yellows);
+    bool checkYellows(std::set<char> yellows) const;
 
     /*
     checkGrays
     Helper function for update
     Returns true if a character is in grays but not in yellows
     */
-    bool checkGrays(std::set<char> grays, std::set<char> yellows);
+    bool checkGrays(std::set<char> grays, std::set<char> yellows) const;
 };
 
 #endif

@@ -26,9 +26,10 @@ Else, false
 */
 bool Word::checkWord(CharInfo charinfo) const
 {
-    return ( checkGreens(charinfo.getGreens() ||
-                checkYellows(charinfo.getYellows() ||
-                checkGrays(charinfo.getGrays(), charinfo.getYellows());
+    char *hi = charinfo.getGreens();
+    if ( checkGreens(hi) ){
+        return false;
+    }
 }
 
 /*
@@ -37,7 +38,7 @@ Receives CharInfo
 Returns the score of the word based off of how many
 potential green, yellow, and gray letters it has
 */
-int Word::getWordScore(CharInfo charinfo) const;
+ // int Word::getWordScore(CharInfo charinfo) const;
 
 /*
 getWord
@@ -54,7 +55,7 @@ Helper function for update
 Returns true if a word should be eliminated based on having
 an incorrect character in a green position
 */
-bool Word::checkGreens(char greens[5])
+bool Word::checkGreens(char greens[5]) const
 {
     for (int i = 0; i < 5; i++)
     {
@@ -71,7 +72,7 @@ checkYellow
 Helper function for update
 Returns true if
 */
-bool Word::checkYellows(std::set<char> yellows)
+bool Word::checkYellows(std::set<char> yellows) const
 {
     std::set<char>::iterator itr;
     for (itr = yellows.begin(); itr != yellows.end(); itr++)
@@ -97,7 +98,7 @@ checkGrays
 Helper function for update
 Returns true if a character is in grays but not in yellows
 */
-bool Word::checkGrays(std::set<char> grays, std::set<char> yellows)
+bool Word::checkGrays(std::set<char> grays, std::set<char> yellows) const
 {
     for (int i = 0; i < 5; i++)
     {
