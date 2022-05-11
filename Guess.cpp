@@ -3,6 +3,7 @@
 // Guess.cpp
 // Implementation file for class Guess
 
+#include <cctype> // required for toupper()
 #include <string>
 #include <iostream>
 #include "Guess.h"
@@ -76,7 +77,7 @@ bool Guess::validateResult(std::string& word) const{
         return false;
     }
     for ( int i = 0; i<5; i++ ){
-        char check = word[i].toupper();
+        char check = toupper(word[i]);
         if ( check != 'G' && check != 'Y' && check != 'X' ){
             return false;
         }
