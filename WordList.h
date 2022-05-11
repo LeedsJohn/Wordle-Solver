@@ -8,6 +8,7 @@
 #include <string>
 #include <vector>
 #include "CharInfo.h"
+#include "ValueFinder.h"
 #include "Word.h"
 
 class WordList
