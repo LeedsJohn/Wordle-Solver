@@ -31,7 +31,7 @@ public:
     std::set<char> getGrays() const;
 
 private:
-    char greens[5];
+    static char greens[5];
     std::set<char> yellows;
     std::set<char> grays;
 };
