@@ -82,5 +82,9 @@ bool Guess::validateResult(std::string& word) const{
 inputWord
 Gets the last word
 */
-std::string& Guess::inputWord() const;
-};
+std::string& Guess::inputWord() const{
+    std::cout << "Enter your guess: ";
+    std::string guessedWord;
+    std::cin >> guessedWord;
+    return guessedWord;
+}
