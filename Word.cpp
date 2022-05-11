@@ -26,10 +26,13 @@ Else, false
 */
 bool Word::checkWord(CharInfo charinfo) const
 {
-    char *hi = charinfo.getGreens();
-    if ( checkGreens(hi) ){
+    if (checkGreens(charinfo.getGreens()) ||
+        checkYellows(charinfo.getYellows()) ||
+        checkGrays(charinfo.getGrays(), charinfo.getYellows()))
+    {
         return false;
     }
+    return true;
 }
 
 /*
@@ -38,7 +41,7 @@ Receives CharInfo
 Returns the score of the word based off of how many
 potential green, yellow, and gray letters it has
 */
- // int Word::getWordScore(CharInfo charinfo) const;
+// int Word::getWordScore(CharInfo charinfo) const;
 
 /*
 getWord
