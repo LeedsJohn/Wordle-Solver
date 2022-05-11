@@ -25,20 +25,37 @@ updateWords
 Receives CharInfo
 Removes unusable words from words
 */
-int WordList::updateWords(CharInfo charinfo);
+int WordList::updateWords(CharInfo charinfo)
+{
+    auto it = words.begin();
+    while (it != words.end())
+    {
+        if (it->checkWord(charinfo))
+        { // TODO: this might not work :D
+            it = words.erase(it);
+        }
+        else
+        {
+            it++;
+        }
+    }
+}
 
 /*
 getBestWord
 Returns the word with the highest word value
 */
-std::string WordList::getBestWord(ValueFinder evaluator) const{
+std::string WordList::getBestWord(ValueFinder evaluator) const
+{
     int maxScore = 0;
     Word bestWord = words[0];
     // TODO: change to using an iterator?
-    for ( size_t i = 0; i < words.size(); i++ ){
+    for (size_t i = 0; i < words.size(); i++)
+    {
         Word curWord = words[i];
         int curScore = evaluator.scoreWord(curWord.getWord());
-        if ( curScore > maxScore ){
+        if (curScore > maxScore)
+        {
             maxScore = curScore;
             bestWord = words[i];
         }
