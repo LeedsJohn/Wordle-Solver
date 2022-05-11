@@ -67,6 +67,14 @@ std::string WordList::getBestWord(ValueFinder evaluator) const
 }
 
 /*
+getWords
+Returns the wordList
+*/
+std::vector<Word> WordList::getWords() const{
+    return words;
+}
+
+/*
 readFile
 Receives a file name to create a word list
 Adds all the words to words

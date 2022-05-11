@@ -32,6 +32,12 @@ public:
     */
     std::string getBestWord(ValueFinder evaluator) const;
 
+    /*
+    getWords
+    Returns the wordList
+    */
+    std::vector<Word> getWords() const;
+
 private:
     std::vector<Word> words;
 
