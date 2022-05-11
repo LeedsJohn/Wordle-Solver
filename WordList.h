@@ -16,7 +16,7 @@ class WordList{
         Constructor
         Receives a file name to create the word list from
         */
-        WordList(std::string fileName);
+        WordList(std::string& fileName);
         
         /*
         updateWords
@@ -39,7 +39,7 @@ class WordList{
         Receives a file name to create a word list
         Adds all the words to words
         */
-        void readFile(std::string fileName);
+        void readFile(std::string& fileName);
 };
 
 #endif
