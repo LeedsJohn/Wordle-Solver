@@ -29,7 +29,7 @@ class WordList{
         getBestWord
         Returns the word with the highest word value
         */
-        std::string& getBestWord() const;
+        std::string getBestWord() const;
 
     private:
         std::vector<Word> words;
