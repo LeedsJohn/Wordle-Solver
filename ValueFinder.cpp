@@ -12,7 +12,9 @@
 /*
 Constructor
 */
-ValueFinder();
+ValueFinder(){
+
+}
 
 /*
 generateFrequencies
@@ -44,11 +46,11 @@ int scoreWord(std::string &w) const
     {
         if (greens[i].find(w[i]) != greens[i].end())
         {
-            score += 2
+            score += greens[i][w[i]] * 2;
         }
-        else if (yellows[i].find(w[i]) != yellows.end())
+        if (yellows[i].find(w[i]) != yellows.end())
         {
-            score += 1
+            score += yellows[w[i]];
         }
     }
     return score;
