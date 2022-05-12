@@ -22,8 +22,8 @@ Word::Word(std::string &w)
 /*
 checkWord
 Receives CharInfo
-Returns true if the word could be a possible answer
-Else, false
+Returns true if a word should be eliminated based
+off of current information
 */
 bool Word::checkWord(CharInfo charinfo) const
 {
@@ -31,9 +31,9 @@ bool Word::checkWord(CharInfo charinfo) const
         checkYellows(charinfo.getYellows()) ||
         checkGrays(charinfo.getGrays(), charinfo.getYellows()))
     {
-        return false;
+        return true;
     }
-    return true;
+    return false;
 }
 
 /*

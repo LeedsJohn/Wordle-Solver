@@ -22,8 +22,8 @@ public:
     /*
     checkWord
     Receives CharInfo
-    Returns true if the word could be a possible answer
-    Else, false
+    Returns true if a word should be eliminated based
+    off of current information
     */
     bool checkWord(CharInfo charinfo) const;
 
