@@ -5,6 +5,7 @@
 
 #include <string>
 #include <set>
+#include <vector>
 #include <iterator>
 #include "CharInfo.h"
 #include "Word.h"
@@ -58,7 +59,7 @@ Helper function for update
 Returns true if a word should be eliminated based on having
 an incorrect character in a green position
 */
-bool Word::checkGreens(char greens[5]) const
+bool Word::checkGreens(std::vector<char> greens) const
 {
     for (int i = 0; i < 5; i++)
     {

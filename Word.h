@@ -7,6 +7,7 @@
 #define WORD_HDR
 #include <string>
 #include <set>
+#include <vector>
 #include "CharInfo.h"
 
 class Word
@@ -49,7 +50,7 @@ private:
     Returns true if a word should be eliminated based on having
     an incorrect character in a green position
     */
-    bool checkGreens(char greens[5]) const;
+    bool checkGreens(std::vector<char> greens) const;
 
     /*
     checkYellow
