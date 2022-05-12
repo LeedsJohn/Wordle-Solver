@@ -1,6 +1,12 @@
+all: solver test
+
+solver: Solver.o
+	g++ Guess.o CharInfo.o Word.o ValueFinder.o WordList.o Solver.o -o solver
 test: Test.o
 	g++ Guess.o CharInfo.o Word.o ValueFinder.o WordList.o Test.o -o test
 
+Solver.o: WordList.o main.cpp
+	g++ -c main.cpp -o Solver.o
 Test.o: WordList.o test.cpp
 	g++ -c test.cpp -o Test.o
 
