@@ -44,8 +44,8 @@ int ValueFinder::scoreWord(std::string w) const
     int score = 0;
     for (int i = 0; i < 5; i++)
     {   
-        score += greens[i].find(w[i])->second * 2;
-        score += yellows.find(w[i])->second;
+        score += greens[i].find(w[i])->second * 3;
+        score += yellows.find(w[i])->second * 2;
     }
     return score;
 }
