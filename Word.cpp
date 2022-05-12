@@ -92,10 +92,10 @@ bool Word::checkYellows(std::set<char> yellows) const
         }
         if (!flag)
         {
-            return false;
+            return true;
         }
     }
-    return true;
+    return false;
 }
 
 /*
