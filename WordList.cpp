@@ -70,8 +70,18 @@ std::string WordList::getBestWord(ValueFinder evaluator) const
 getWords
 Returns the wordList
 */
-std::vector<Word> WordList::getWords() const{
+std::vector<Word> WordList::getWords() const
+{
     return words;
+}
+
+/*
+length
+Returns the length of the wordList
+*/
+int WordList::length() const
+{
+    return words.size();
 }
 
 /*

@@ -39,6 +39,12 @@ public:
     */
     std::vector<Word> getWords() const;
 
+    /*
+    length
+    Returns the length of the wordList
+    */
+    int length() const;
+
 private:
     std::vector<Word> words;
 
