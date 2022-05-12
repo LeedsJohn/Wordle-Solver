@@ -19,7 +19,7 @@ int main()
     CharInfo ci;
     Guess g;
     int round = 1;
-    while (answers.length() > 1)
+    while (answers.length() != 0 && g.getResult() != "GGGGG")
     {
         std::cout << "Round " << round << ":\n";
         std::cout << "Possible guesses: " << guesses.length() << "\nPossible answers: " << answers.length() << '\n';
@@ -36,4 +36,5 @@ int main()
         ci.update(g);
         std::cout << "Number of guesses eliminated: " << guesses.updateWords(ci) << "\nNumber of answers eliminated: " << answers.updateWords(ci) << '\n';
     }
+    std::cout << "Found " << g.getWord() << " in " << round << " guesses.\n";
 }
