@@ -1,10 +1,10 @@
 test: Test.o
-	g++ CharInfo.o Guess.o WordList.o CharInfo.o ValueFinder.o Test.o -o test
+	g++ Guess.o CharInfo.o Word.o ValueFinder.o WordList.o Test.o -o test
 
-Test.o: Guess.o WordList.o CharInfo.o ValueFinder.o test.cpp
+Test.o: WordList.o test.cpp
 	g++ -c test.cpp -o Test.o
 
-WordList.o: Word.o ValueFinder.o WordList.h WordList.cpp
+WordList.o: ValueFinder.o WordList.h WordList.cpp
 	g++ -c WordList.cpp -o WordList.o
 ValueFinder.o: Word.o ValueFinder.h ValueFinder.cpp
 	g++ -c ValueFinder.cpp -o ValueFinder.o
