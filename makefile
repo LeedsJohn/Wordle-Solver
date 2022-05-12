@@ -22,4 +22,4 @@ Guess.o: Guess.cpp Guess.h
 	g++ -c Guess.cpp -o Guess.o
 
 clean:
-	rm *.o test
+	rm *.o test solver
