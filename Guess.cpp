@@ -23,8 +23,8 @@ Gets user input and updates word and result
 */
 void Guess::inputInfo()
 {
-    result = getResult();
-    word = getWord();
+    word = inputWord();
+    result = inputResult();
 }
 
 /*
