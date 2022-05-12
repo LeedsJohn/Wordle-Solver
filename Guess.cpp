@@ -56,9 +56,7 @@ Enter one character for each character -
 */
 std::string Guess::inputResult() const
 {
-    std::cout << "Enter 5 characters representing the results of your guess."
-              << " Enter 'G' for green (correct position), 'Y' for yellow (incorrect position),"
-              << " or 'X' if the letter was not in the word.\n";
+    std::cout << "Enter the results of your guess (green --> g, yellow --> y, gray --> x): ";
     std::string results;
     while (!validateResult(results))
     {
