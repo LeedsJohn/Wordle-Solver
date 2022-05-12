@@ -6,6 +6,7 @@
 #ifndef CHARINFO_HDR
 #define CHARINFO_HDR
 #include <set>
+#include <vector>
 #include "Guess.h"
 
 class CharInfo
@@ -24,14 +25,14 @@ public:
     void update(Guess &g);
 
     // GETTERS
-    char *getGreens() const;
+    std::vector<char> getGreens() const;
 
     std::set<char> getYellows() const;
 
     std::set<char> getGrays() const;
 
 private:
-    static char greens[5];
+    std::vector<char> greens;
     std::set<char> yellows;
     std::set<char> grays;
 };

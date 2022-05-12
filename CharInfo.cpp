@@ -4,6 +4,7 @@
 // Header file for class CharInfo
 
 #include <set>
+#include <vector>
 #include <string>
 #include "Guess.h"
 #include "CharInfo.h"
@@ -15,7 +16,7 @@ CharInfo::CharInfo()
 {
     for (int i = 0; i < 5; i++)
     {
-        greens[i] = '*';
+        greens.push_back('*');
     }
 }
 
@@ -47,7 +48,7 @@ void CharInfo::update(Guess &g)
 }
 
 // GETTERS
-char *CharInfo::getGreens() const
+std::vector<char> CharInfo::getGreens() const
 {
     return greens;
 }
