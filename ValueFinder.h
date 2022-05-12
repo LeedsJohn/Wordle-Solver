@@ -34,6 +34,12 @@ public:
 private:
     std::map<char, int> greens[5];
     std::map<char, int> yellows;
+
+    /*
+    checkPrev
+    Checks previous characters in a word for a character
+    */
+   bool checkPrev(char word[], char c) const;
 };
 
 #endif

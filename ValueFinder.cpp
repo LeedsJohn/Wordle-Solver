@@ -42,10 +42,28 @@ Returns an integer representing its value
 int ValueFinder::scoreWord(std::string w) const
 {
     int score = 0;
+    char curWord[5] = {'*'};
     for (int i = 0; i < 5; i++)
     {   
-        score += greens[i].find(w[i])->second * 3;
-        score += yellows.find(w[i])->second * 2;
+        int greenScore = greens[i].find(w[i])->second * 3;
+        score += greenScore;
+        if ( greenScore == 0 && !checkPrev(curWord, w[i])){
+            score += yellows.find(w[i])->second * 2;
+        }
+        curWord[i] = w[i];
     }
     return score;
+}
+
+/*
+checkPrev
+Checks previous characters in a word for a character
+*/
+bool ValueFinder::checkPrev(char word[], char c) const{
+    for ( int i = 0; i<5; i++ ){
+        if ( word[i] == c ){
+            return true;
+        }
+    }
+    return false;
 }
