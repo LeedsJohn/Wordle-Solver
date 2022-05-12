@@ -55,7 +55,8 @@ private:
     /*
     checkYellow
     Helper function for update
-    Returns true if
+    Returns true if a word should be eliminated based on not
+    including a character that is known in the word.
     */
     bool checkYellows(std::set<char> yellows) const;
 

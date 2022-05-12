@@ -74,7 +74,8 @@ bool Word::checkGreens(std::vector<char> greens) const
 /*
 checkYellow
 Helper function for update
-Returns true if
+Returns true if a word should be eliminated based on not
+including a character that is known in the word.
 */
 bool Word::checkYellows(std::set<char> yellows) const
 {
