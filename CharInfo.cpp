@@ -13,7 +13,8 @@
 constructor
 */
 CharInfo::CharInfo()
-{
+{   
+    wrongPosition = std::vector<std::set<char>>(5);
     for (int i = 0; i < 5; i++)
     {
         greens.push_back('*');
@@ -62,4 +63,8 @@ std::set<char> CharInfo::getYellows() const
 std::set<char> CharInfo::getGrays() const
 {
     return grays;
+}
+
+std::vector<std::set<char>> CharInfo::getWrongPosition() const{
+    return wrongPosition;
 }

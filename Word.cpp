@@ -29,7 +29,8 @@ bool Word::checkWord(CharInfo charinfo) const
 {
     if (checkGreens(charinfo.getGreens()) ||
         checkYellows(charinfo.getYellows()) ||
-        checkGrays(charinfo.getGrays(), charinfo.getYellows()))
+        checkGrays(charinfo.getGrays(), charinfo.getYellows()) || 
+        checkWrongPosition(charinfo.getWrongPosition()))
     {
         return true;
     }
@@ -110,6 +111,20 @@ bool Word::checkGrays(std::set<char> grays, std::set<char> yellows) const
         if (grays.find(word[i]) != grays.end() &&
             yellows.find(word[i]) == yellows.end())
         {
+            return true;
+        }
+    }
+    return false;
+}
+
+/*
+checkWrongPosition
+Helper function for update
+Returns true if there is a character that is yellow but in the wrong position
+*/
+bool Word::checkWrongPosition(std::vector<std::set<char>> wrongPos) const{
+    for ( int i = 0; i<5; i++ ){
+        if ( wrongPos[i].find(word[i]) != wrongPos[i].end() ){
             return true;
         }
     }

@@ -31,9 +31,11 @@ public:
 
     std::set<char> getGrays() const;
 
+    std::vector<std::set<char>> getWrongPosition() const;
+
 private:
     std::vector<char> greens;
-    std::set<char> wrongPosition[5];
+    std::vector<std::set<char>> wrongPosition;
     std::set<char> yellows;
     std::set<char> grays;
 };

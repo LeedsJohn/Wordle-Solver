@@ -66,6 +66,13 @@ private:
     Returns true if a character is in grays but not in yellows
     */
     bool checkGrays(std::set<char> grays, std::set<char> yellows) const;
+
+    /*
+    checkWrongPosition
+    Helper function for update
+    Returns true if there is a character that is yellow but in the wrong position
+    */
+    bool checkWrongPosition(std::vector<std::set<char>> wrongPos) const;
 };
 
 #endif
