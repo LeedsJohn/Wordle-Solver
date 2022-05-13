@@ -31,10 +31,10 @@ void Guess::inputInfo()
 inputInfo
 Updates word and result from received values
 */
-void Guess::inputInfo(std::string w, std::string r)
+void Guess::inputInfo(std::string w, std::string ans)
 {
     word = w;
-    result = r;
+    result = calculateResult(w, ans);
 }
 
 /*
@@ -113,4 +113,31 @@ std::string Guess::inputWord() const
     std::string guessedWord;
     std::cin >> guessedWord;
     return guessedWord;
+}
+
+/*
+calculateResult
+Receives the guess and answer
+Returns the result
+*/
+std::string Guess::calculateResult(std::string g, std::string a)
+{
+}
+
+/*
+countOccurrences
+Receives a string and a character
+Returns how many times the character appears in the string
+*/
+int Guess::countOccurrences(std::string w, char c)
+{
+    int count = 0;
+    for (auto &cur : w)
+    {
+        if (cur == c)
+        {
+            count++;
+        }
+    }
+    return count;
 }

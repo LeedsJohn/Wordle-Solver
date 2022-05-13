@@ -25,7 +25,7 @@ public:
     inputInfo
     Updates word and result from received values
     */
-    void inputInfo(std::string w, std::string r);
+    void inputInfo(std::string w, std::string ans);
 
     /*
     getResult
@@ -66,6 +66,20 @@ private:
     Gets the last word
     */
     std::string inputWord() const;
+
+    /*
+    calculateResult
+    Receives the guess and answer
+    Returns the result
+    */
+    std::string Guess::calculateResult(std::string g, std::string a);
+    
+    /*
+    countOccurrences
+    Receives a string and a character
+    Returns how many times the character appears in the string
+    */
+    int Guess::countOccurrences(std::string w, char c);
 };
 
 #endif
