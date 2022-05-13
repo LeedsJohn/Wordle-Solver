@@ -38,14 +38,6 @@ bool Word::checkWord(CharInfo charinfo) const
 }
 
 /*
-getWordScore
-Receives CharInfo
-Returns the score of the word based off of how many
-potential green, yellow, and gray letters it has
-*/
-// int Word::getWordScore(CharInfo charinfo) const;
-
-/*
 getWord
 Returns the word
 */
