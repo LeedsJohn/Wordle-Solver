@@ -37,6 +37,7 @@ void CharInfo::update(Guess &g)
         }
         else if (result[i] == 'Y')
         {
+            wrongPosition[i].insert(word[i]);
             yellows.insert(word[i]);
         }
         else

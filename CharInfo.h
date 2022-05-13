@@ -33,6 +33,7 @@ public:
 
 private:
     std::vector<char> greens;
+    std::set<char> wrongPosition[5];
     std::set<char> yellows;
     std::set<char> grays;
 };
