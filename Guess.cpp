@@ -129,7 +129,7 @@ std::string Guess::calculateResult(std::string g, std::string a)
         if ( g[i] == a[i] ){
             result.push_back('G');
         }
-        else if ( occurrences == 0 || countOccurrences(g, g[i], i) == occurrences ){
+        else if ( occurrences == 0 || countOccurrences(g, g[i], i) >= occurrences ){
             result.push_back('X');
         }
         else{

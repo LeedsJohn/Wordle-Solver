@@ -72,14 +72,14 @@ private:
     Receives the guess and answer
     Returns the result
     */
-    std::string Guess::calculateResult(std::string g, std::string a);
+    std::string calculateResult(std::string g, std::string a);
     
     /*
     countOccurrences
     Receives a string and a character
     Returns how many times the character appears in the string
     */
-    int Guess::countOccurrences(std::string w, char c, int end = 5);
+    int countOccurrences(std::string w, char c, int end = 5);
 };
 
 #endif
