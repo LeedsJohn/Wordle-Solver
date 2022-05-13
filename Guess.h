@@ -22,6 +22,12 @@ public:
     void inputInfo();
 
     /*
+    inputInfo
+    Updates word and result from received values
+    */
+    void inputInfo(std::string w, std::string r);
+
+    /*
     getResult
     Returns result
     */

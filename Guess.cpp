@@ -28,6 +28,16 @@ void Guess::inputInfo()
 }
 
 /*
+inputInfo
+Updates word and result from received values
+*/
+void Guess::inputInfo(std::string w, std::string r)
+{
+    word = w;
+    result = r;
+}
+
+/*
 getResult
 Returns result
 */
