@@ -37,5 +37,6 @@ int main()
         round++;
         std::cout << "Number of guesses eliminated: " << guesses.updateWords(ci) << "\nNumber of answers eliminated: " << answers.updateWords(ci) << '\n';
     }
+    round--;
     std::cout << "Found " << g.getWord() << " in " << round << " guesses.\n";
 }
