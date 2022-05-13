@@ -33,7 +33,8 @@ void CharInfo::update(Guess &g)
     for (size_t i = 0; i < 5; i++)
     {
         if (result[i] == 'X')
-        {
+        {   
+            wrongPosition[i].insert(word[i]);
             grays.insert(word[i]);
         }
         else if (result[i] == 'Y')
