@@ -1,10 +1,14 @@
-all: solver test
+all: solver test analysis
 
+analysis: Analysis.o
+	g++ Guess.o CharInfo.o Word.o ValueFinder.o WordList.o Analysis.o -o analysis
 solver: Solver.o
 	g++ Guess.o CharInfo.o Word.o ValueFinder.o WordList.o Solver.o -o solver
 test: Test.o
 	g++ Guess.o CharInfo.o Word.o ValueFinder.o WordList.o Test.o -o test
 
+Analysis.o: WordList.o analysis.cpp
+	g++ -c analysis.cpp -o Analysis.o
 Solver.o: WordList.o main.cpp
 	g++ -c main.cpp -o Solver.o
 Test.o: WordList.o test.cpp
