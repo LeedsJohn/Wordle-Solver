@@ -79,7 +79,7 @@ private:
     Receives a string and a character
     Returns how many times the character appears in the string
     */
-    int Guess::countOccurrences(std::string w, char c);
+    int Guess::countOccurrences(std::string w, char c, int end = 5);
 };
 
 #endif

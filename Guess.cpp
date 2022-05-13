@@ -122,6 +122,21 @@ Returns the result
 */
 std::string Guess::calculateResult(std::string g, std::string a)
 {
+    std::string result = "";
+    for ( int i = 0; i<5; i++ ){
+        int occurrences = countOccurrences(a, g[i]);
+
+        if ( g[i] == a[i] ){
+            result.push_back('G');
+        }
+        else if ( occurrences == 0 || countOccurrences(g, g[i], i) == occurrences ){
+            result.push_back('X');
+        }
+        else{
+            result.push_back('Y');
+        }
+    }
+    return result;
 }
 
 /*
@@ -129,12 +144,12 @@ countOccurrences
 Receives a string and a character
 Returns how many times the character appears in the string
 */
-int Guess::countOccurrences(std::string w, char c)
+int Guess::countOccurrences(std::string w, char c, int end /* = 5 */)
 {
     int count = 0;
-    for (auto &cur : w)
+    for (int i = 0; i<end; i++ )
     {
-        if (cur == c)
+        if (w[i] == c)
         {
             count++;
         }
