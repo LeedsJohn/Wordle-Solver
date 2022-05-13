@@ -11,57 +11,60 @@
 std::string GUESS_PATH = "data/guesses.txt";
 std::string ANSWER_PATH = "data/answers.txt";
 
-int playRound(std::string ans){
+int playRound(std::string ans)
+{
     WordList guesses(GUESS_PATH);
     WordList answers(ANSWER_PATH);
-    ValueFinder vf(guesses.getWords());
     CharInfo ci;
     Guess g;
-    int round = 1;
-    while (answers.length() != 0 && g.getResult() != "GGGGG")
+    int round = 0;
+    while (answers.length() != 0 && g.getResult() != "GGGGG" && round < 20)
     {
+        ValueFinder vf(answers.getWords());
         std::string bestGuess = "";
         if (answers.length() <= 10)
         {
-            std::string bestGuess = answers.getBestWord(vf);
+            bestGuess = answers.getBestWord(vf);
         }
         else
         {
-            std::string bestGuess = guesses.getBestWord(vf);
+            bestGuess = guesses.getBestWord(vf);
         }
-        g.inputInfo();
+        g.inputInfo(bestGuess, ans);
         ci.update(g);
         guesses.updateWords(ci);
         answers.updateWords(ci);
         round++;
     }
-
+    return round;
 }
 
 int main()
 {
-    WordList guesses(GUESS_PATH);
-    WordList answers(ANSWER_PATH);
-    ValueFinder vf(guesses.getWords());
-    CharInfo ci;
-    Guess g;
-    int round = 1;
-    while (answers.length() != 0 && g.getResult() != "GGGGG")
-    {
-        std::cout << "Round " << round << ":\n";
-        std::cout << "Possible guesses: " << guesses.length() << "\nPossible answers: " << answers.length() << '\n';
-        std::cout << "Best guess: ";
-        if (answers.length() <= 10)
-        {
-            std::cout << answers.getBestWord(vf) << '\n';
+    WordList words(ANSWER_PATH);
+    std::vector<Word> wordList = words.getWords();
+    int numWords = 0;
+    int totalRounds = 0;
+    int overSix = 0;
+    int maxGuesses = 0;
+    //for ( auto &word : wordList ){
+    for ( int i = 0; i<100; i++ ){
+        Word word = wordList[162];
+        std::cout << word.getWord() << '\n';
+        numWords++;
+        int guesses = playRound(word.getWord());
+        totalRounds += guesses;
+        if ( guesses > maxGuesses ){
+            maxGuesses = guesses;
         }
-        else
-        {
-            std::cout << guesses.getBestWord(vf) << '\n';
+        if ( guesses > 6 ){
+            std::cout << "lost - " << guesses << " guesses. Word: " << word.getWord() << '\n';
         }
-        g.inputInfo();
-        ci.update(g);
-        std::cout << "Number of guesses eliminated: " << guesses.updateWords(ci) << "\nNumber of answers eliminated: " << answers.updateWords(ci) << '\n';
+        if ( numWords%50 == 0 ){
+            std::cout << numWords << '\t' << totalRounds << '\n';
+        }
+        //std::cout << "Word: " << word.getWord() << "\tnumWords: " << numWords << "\ttotalRounds: " << totalRounds << '\n';
+        break;
     }
-    std::cout << "Found " << g.getWord() << " in " << round << " guesses.\n";
+    std::cout << "numWords: " << numWords << "\ttotalRounds: " << totalRounds << "\tmaxGuesses: " << maxGuesses << '\n';
 }

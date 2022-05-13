@@ -1,11 +1,28 @@
 # Wordle-Solver
-I created this Wordle Solver to learn more about C++ when I was first beginning to use it. Because of this, there are a lot of stylistic changes I would 
-make if I were to rewrite this. The most obvious of these is dividing my code into multiple files.
 
-Unfortunately, I do not feel comfortable including the 
-word lists I used for this as I found them from someone else. Please check out this project if you would like to view them: https://github.com/bnprks/wordle_solver 
+I created this Wordle Solver to learn more about C++ when I was first beginning to use it and rewrote it several months later.  My first version was 500 lines of spaghetti code in one file, but I placed much more of an emphasis on object oriented programming upon rewriting.
 
-Ultimately, this solver takes 3.8 guesses on average to solve Wordle. However, there are roughly 20 words (out of several thousand) where it fails to solve
-Wordle in <=6 guesses.
+One of the first challenges in this project was finding the word lists.  They are easily found in the Wordle source code (main.9622bc55.js).  From there, I got to designing my algorithm.
 
-![image](https://user-images.githubusercontent.com/94880155/163911620-561588df-6520-47f3-8f83-10b68639918d.png)
+My algorithm is relatively simple - assign each character a score (3 for green, 2 for yellow) and pick the word with the highest score.
+
+My new implementation is working and is much prettier than my first attempt, but still requires some tuning as it took >4 guesses per word on average and lost on ~2% of words compared to my first version which took 3.8 guesses and only lost on about 1% of words.
+
+## files
+
+ - data
+	 - contains the word lists
+ - Guess
+	 - Contains information about the guessed word and what information it revealed
+ - Word
+	 - Holds a word.  Used to evaluate whether the word should be eliminated or not based off of known information
+ - WordList
+	 - List of words - main handles a list of possible guesses and possible answers
+ - CharInfo
+	 - Contains the known information about the word - greens, yellows, grays, etc.
+ - ValueFinder
+	 - Used to find an integer score for a word based off of character frequencies
+ - analysis.cpp
+	 - Runs through every possible answer to find the average number of guesses this solver takes
+ - main.cpp
+	 - Interactive playthrough with user interaction

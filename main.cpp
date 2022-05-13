@@ -15,12 +15,12 @@ int main()
 {
     WordList guesses(GUESS_PATH);
     WordList answers(ANSWER_PATH);
-    ValueFinder vf(guesses.getWords());
     CharInfo ci;
     Guess g;
-    int round = 1;
+    int round = 0;
     while (answers.length() != 0 && g.getResult() != "GGGGG")
     {
+        ValueFinder vf(answers.getWords());
         std::cout << "Round " << round << ":\n";
         std::cout << "Possible guesses: " << guesses.length() << "\nPossible answers: " << answers.length() << '\n';
         std::cout << "Best guess: ";
@@ -37,6 +37,5 @@ int main()
         round++;
         std::cout << "Number of guesses eliminated: " << guesses.updateWords(ci) << "\nNumber of answers eliminated: " << answers.updateWords(ci) << '\n';
     }
-    round--;
     std::cout << "Found " << g.getWord() << " in " << round << " guesses.\n";
 }
