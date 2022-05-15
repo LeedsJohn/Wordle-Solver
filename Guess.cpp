@@ -31,7 +31,7 @@ void Guess::inputInfo()
 inputInfo
 Updates word and result from received values
 */
-void Guess::inputInfo(std::string w, std::string ans)
+void Guess::inputInfo(const std::string &w, const std::string &ans)
 {
     word = w;
     result = calculateResult(w, ans);
@@ -41,7 +41,7 @@ void Guess::inputInfo(std::string w, std::string ans)
 getResult
 Returns result
 */
-std::string Guess::getResult() const
+const std::string &Guess::getResult() const
 {
     return result;
 }
@@ -50,7 +50,7 @@ std::string Guess::getResult() const
 getWord
 Returns word
 */
-std::string Guess::getWord() const
+const std::string &Guess::getWord() const
 {
     return word;
 }
@@ -86,7 +86,7 @@ validateResult
 Ensures that result is 5 characters and only contains
 g, y, or x
 */
-bool Guess::validateResult(std::string &word) const
+bool Guess::validateResult(const std::string &word) const
 {
     if (word.size() != 5)
     {
@@ -120,7 +120,7 @@ calculateResult
 Receives the guess and answer
 Returns the result
 */
-std::string Guess::calculateResult(std::string g, std::string a)
+std::string Guess::calculateResult(const std::string &g, const std::string &a)
 {
     std::string result = "";
     for ( int i = 0; i<5; i++ ){
@@ -144,7 +144,7 @@ countOccurrences
 Receives a string and a character
 Returns how many times the character appears in the string
 */
-int Guess::countOccurrences(std::string w, char c, int end /* = 5 */)
+int Guess::countOccurrences(const std::string &w, char c, int end /* = 5 */)
 {
     int count = 0;
     for (int i = 0; i<end; i++ )

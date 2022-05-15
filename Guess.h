@@ -25,19 +25,19 @@ public:
     inputInfo
     Updates word and result from received values
     */
-    void inputInfo(std::string w, std::string ans);
+    void inputInfo(const std::string &w, const std::string &ans);
 
     /*
     getResult
     Returns result
     */
-    std::string getResult() const;
+    const std::string &getResult() const;
 
     /*
     getWord
     Returns word
     */
-    std::string getWord() const;
+    const std::string &getWord() const;
 
 private:
     std::string result;
@@ -59,7 +59,7 @@ private:
     Ensures that result is 5 characters and only contains
     g, y, or x
     */
-    bool validateResult(std::string &word) const;
+    bool validateResult(const std::string &word) const;
 
     /*
     inputWord
@@ -72,14 +72,14 @@ private:
     Receives the guess and answer
     Returns the result
     */
-    std::string calculateResult(std::string g, std::string a);
+    std::string calculateResult(const std::string &g, const std::string &a);
     
     /*
     countOccurrences
     Receives a string and a character
     Returns how many times the character appears in the string
     */
-    int countOccurrences(std::string w, char c, int end = 5);
+    int countOccurrences(const std::string &w, char c, int end = 5);
 };
 
 #endif
