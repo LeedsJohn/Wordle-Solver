@@ -25,13 +25,13 @@ public:
     void update(Guess &g);
 
     // GETTERS
-    std::vector<char> getGreens() const;
+    const std::vector<char> &getGreens() const;
 
-    std::set<char> getYellows() const;
+    const std::set<char> &getYellows() const;
 
-    std::set<char> getGrays() const;
+    const std::set<char> &getGrays() const;
 
-    std::vector<std::set<char>> getWrongPosition() const;
+    const std::vector<std::set<char>> &getWrongPosition() const;
 
 private:
     std::vector<char> greens;

@@ -11,10 +11,10 @@
 std::string GUESS_PATH = "data/guesses.txt";
 std::string ANSWER_PATH = "data/answers.txt";
 
-int playRound(std::string ans)
+int playRound(std::string ans, WordList guesses, WordList answers)
 {
-    WordList guesses(GUESS_PATH);
-    WordList answers(ANSWER_PATH);
+    // WordList guesses(GUESS_PATH);
+    // WordList answers(ANSWER_PATH);
     CharInfo ci;
     Guess g;
     int round = 0;
@@ -41,6 +41,7 @@ int playRound(std::string ans)
 
 int main()
 {
+    WordList guess_words(GUESS_PATH);
     WordList words(ANSWER_PATH);
     std::vector<Word> wordList = words.getWords();
     int numWords = 0;
@@ -52,7 +53,7 @@ int main()
         // Word word = wordList[162];
         // std::cout << word.getWord() << '\n';
         numWords++;
-        int guesses = playRound(word.getWord());
+        int guesses = playRound(word.getWord(), guess_words, words);
         totalRounds += guesses;
         if ( guesses > maxGuesses ){
             maxGuesses = guesses;

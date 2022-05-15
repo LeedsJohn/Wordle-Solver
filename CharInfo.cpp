@@ -51,21 +51,21 @@ void CharInfo::update(Guess &g)
 }
 
 // GETTERS
-std::vector<char> CharInfo::getGreens() const
+const std::vector<char> &CharInfo::getGreens() const
 {
     return greens;
 }
 
-std::set<char> CharInfo::getYellows() const
+const std::set<char> &CharInfo::getYellows() const
 {
     return yellows;
 }
 
-std::set<char> CharInfo::getGrays() const
+const std::set<char> &CharInfo::getGrays() const
 {
     return grays;
 }
 
-std::vector<std::set<char>> CharInfo::getWrongPosition() const{
+const std::vector<std::set<char>> &CharInfo::getWrongPosition() const{
     return wrongPosition;
 }
