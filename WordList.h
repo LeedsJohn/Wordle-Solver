@@ -18,26 +18,26 @@ public:
     Constructor
     Receives a file name to create the word list from
     */
-    WordList(std::string &fileName);
+    WordList(const std::string &fileName);
 
     /*
     updateWords
     Receives CharInfo
     Removes unusable words from words
     */
-    int updateWords(CharInfo charinfo);
+    int updateWords(const CharInfo &charinfo);
 
     /*
     getBestWord
     Returns the word with the highest word value
     */
-    std::string getBestWord(ValueFinder evaluator) const;
+    const std::string &getBestWord(const ValueFinder &evaluator) const;
 
     /*
     getWords
     Returns the wordList
     */
-    std::vector<Word> getWords() const;
+    const std::vector<Word> &getWords() const;
 
     /*
     length
@@ -53,7 +53,7 @@ private:
     Receives a file name to create a word list
     Adds all the words to words
     */
-    void readFile(std::string &fileName);
+    void readFile(const std::string &fileName);
 };
 
 #endif

@@ -15,7 +15,7 @@
 Constructor
 Receives a file name to create the word list from
 */
-WordList::WordList(std::string &fileName)
+WordList::WordList(const std::string &fileName)
 {
     readFile(fileName);
 }
@@ -25,7 +25,7 @@ updateWords
 Receives CharInfo
 Removes unusable words from words
 */
-int WordList::updateWords(CharInfo charinfo)
+int WordList::updateWords(const CharInfo &charinfo)
 {
     int count = 0;
     auto it = words.begin();
@@ -48,7 +48,7 @@ int WordList::updateWords(CharInfo charinfo)
 getBestWord
 Returns the word with the highest word value
 */
-std::string WordList::getBestWord(ValueFinder evaluator) const
+const std::string &WordList::getBestWord(const ValueFinder &evaluator) const
 {
     int maxScore = 0;
     Word bestWord = words[0];
@@ -70,7 +70,7 @@ std::string WordList::getBestWord(ValueFinder evaluator) const
 getWords
 Returns the wordList
 */
-std::vector<Word> WordList::getWords() const
+const std::vector<Word> &WordList::getWords() const
 {
     return words;
 }
@@ -89,7 +89,7 @@ readFile
 Receives a file name to create a word list
 Adds all the words to words
 */
-void WordList::readFile(std::string &fileName)
+void WordList::readFile(const std::string &fileName)
 {
     std::ifstream myFile(fileName);
     std::string str;

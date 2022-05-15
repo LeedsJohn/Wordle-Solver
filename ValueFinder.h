@@ -15,21 +15,21 @@ public:
     /*
     Constructor
     */
-    ValueFinder(std::vector<Word> words);
+    ValueFinder(const std::vector<Word> &words);
 
     /*
     generateFrequencies
     Takes a word list and determines how frequently a character occurs
     and how many words would share a green
     */
-    void generateFrequencies(std::vector<Word> words);
+    void generateFrequencies(const std::vector<Word> &words);
 
     /*
     scoreWord
     Receives a string
     Returns an integer representing its value
     */
-    int scoreWord(std::string w) const;
+    int scoreWord(const std::string &w) const;
 
 private:
     std::map<char, int> greens[5];

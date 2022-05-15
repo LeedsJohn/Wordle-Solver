@@ -12,7 +12,7 @@
 /*
 Constructor
 */
-ValueFinder::ValueFinder(std::vector<Word> words){
+ValueFinder::ValueFinder(const std::vector<Word> &words){
     generateFrequencies(words);
 }
 
@@ -21,7 +21,7 @@ generateFrequencies
 Takes a word list and determines how frequently a character occurs
 and how many words would share a green
 */
-void ValueFinder::generateFrequencies(std::vector<Word> words)
+void ValueFinder::generateFrequencies(const std::vector<Word> &words)
 {
     for (size_t i = 0; i < words.size(); i++)
     {
@@ -39,7 +39,7 @@ scoreWord
 Receives a string
 Returns an integer representing its value
 */
-int ValueFinder::scoreWord(std::string w) const
+int ValueFinder::scoreWord(const std::string &w) const
 {
     int score = 0;
     char curWord[5] = {'*'};
@@ -47,6 +47,7 @@ int ValueFinder::scoreWord(std::string w) const
     {   
         int penalty = 1;
         int charScore = greens[i].find(w[i])->second * 3;
+        score += charScore;
         if ( checkPrev(curWord, w[i])){
             penalty = 2;
         }
