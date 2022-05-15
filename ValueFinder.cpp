@@ -45,11 +45,15 @@ int ValueFinder::scoreWord(std::string w) const
     char curWord[5] = {'*'};
     for (int i = 0; i < 5; i++)
     {   
-        int greenScore = greens[i].find(w[i])->second * 3;
-        score += greenScore;
-        if ( greenScore == 0 && !checkPrev(curWord, w[i])){
-            score += yellows.find(w[i])->second * 2;
+        int penalty = 1;
+        int charScore = greens[i].find(w[i])->second * 3;
+        if ( checkPrev(curWord, w[i])){
+            penalty = 2;
         }
+        else if ( charScore == 0 ){
+            charScore = yellows.find(w[i])->second * 2;
+        }
+        score += charScore/penalty;
         curWord[i] = w[i];
     }
     return score;
