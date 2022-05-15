@@ -534,8 +534,8 @@ void test()
 
 void playGame()
 {
-    LinkedList words("guesses.txt");
-    LinkedList answers("answers.txt");
+    LinkedList words("data/guesses.txt");
+    LinkedList answers("data/answers.txt");
     LinkedList *wordsptr = &words;
     LinkedList *answersptr = &answers;
     string results;
@@ -600,8 +600,8 @@ string autoGetResults(string answer, string guess)
 
 int autoPlayGame(string answer)
 {
-    LinkedList words("guesses.txt");
-    LinkedList answers("answers.txt");
+    LinkedList words("data/guesses.txt");
+    LinkedList answers("data/answers.txt");
     LinkedList *wordsptr = &words;
     LinkedList *answersptr = &answers;
     string results;
@@ -632,8 +632,9 @@ int autoPlayGame(string answer)
 
 void analysis()
 {
-    LinkedList possibilities("answers.txt");
+    LinkedList possibilities("data/answers.txt");
     Node *word = possibilities.getHead();
+    int rounds = 0;
     int data[9] = {0};
     int sum = 0;
     int maxSum;
@@ -641,12 +642,17 @@ void analysis()
     cin >> maxSum;
     while (word != NULL && sum < maxSum)
     {
+        rounds++;
         int guesses = autoPlayGame(word->getWord());
         if (guesses > 6)
             cout << word->getWord() << endl;
         sum += guesses;
         data[guesses - 1] += 1;
         word = word->getNext();
+        if (rounds % 50 == 0)
+        {
+            cout << rounds << '\n';
+        }
     }
     cout << "Total answers: " << possibilities.length() << endl;
     cout << "Total guesses: " << sum << endl;
