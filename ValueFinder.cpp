@@ -53,7 +53,7 @@ int ValueFinder::scoreWord(std::string w) const
         else if ( charScore == 0 ){
             charScore = yellows.find(w[i])->second * 2;
         }
-        score += charScore/penalty;
+        score += (charScore+1)/penalty;
         curWord[i] = w[i];
     }
     return score;

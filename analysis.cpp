@@ -47,10 +47,10 @@ int main()
     int totalRounds = 0;
     int overSix = 0;
     int maxGuesses = 0;
-    //for ( auto &word : wordList ){
-    for ( int i = 0; i<100; i++ ){
-        Word word = wordList[162];
-        std::cout << word.getWord() << '\n';
+    for ( auto &word : wordList ){
+    // for ( int i = 0; i<100; i++ ){
+        // Word word = wordList[162];
+        // std::cout << word.getWord() << '\n';
         numWords++;
         int guesses = playRound(word.getWord());
         totalRounds += guesses;
@@ -64,7 +64,7 @@ int main()
             std::cout << numWords << '\t' << totalRounds << '\n';
         }
         //std::cout << "Word: " << word.getWord() << "\tnumWords: " << numWords << "\ttotalRounds: " << totalRounds << '\n';
-        break;
+        // break;
     }
     std::cout << "numWords: " << numWords << "\ttotalRounds: " << totalRounds << "\tmaxGuesses: " << maxGuesses << '\n';
 }
