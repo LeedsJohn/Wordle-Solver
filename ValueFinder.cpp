@@ -64,6 +64,9 @@ bool ValueFinder::checkPrev(char word[], char c) const{
         if ( word[i] == c ){
             return true;
         }
+        if ( word[i] == '*' ){ // exit early
+            return false;
+        }
     }
     return false;
 }
