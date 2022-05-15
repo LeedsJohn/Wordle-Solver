@@ -42,7 +42,7 @@ private:
     Returns true if a word should be eliminated based on having
     an incorrect character in a green position
     */
-    bool checkGreens(std::vector<char> greens) const;
+    bool checkGreens(const std::vector<char> &greens) const;
 
     /*
     checkYellow
@@ -50,21 +50,21 @@ private:
     Returns true if a word should be eliminated based on not
     including a character that is known in the word.
     */
-    bool checkYellows(std::set<char> yellows) const;
+    bool checkYellows(const std::set<char> &yellows) const;
 
     /*
     checkGrays
     Helper function for update
     Returns true if a character is in grays but not in yellows
     */
-    bool checkGrays(std::set<char> grays, std::set<char> yellows) const;
+    bool checkGrays(const std::set<char> &grays, const std::set<char> &yellows) const;
 
     /*
     checkWrongPosition
     Helper function for update
     Returns true if there is a character that is yellow but in the wrong position
     */
-    bool checkWrongPosition(std::vector<std::set<char>> wrongPos) const;
+    bool checkWrongPosition(const std::vector<std::set<char>> &wrongPos) const;
 };
 
 #endif

@@ -52,7 +52,7 @@ Helper function for update
 Returns true if a word should be eliminated based on having
 an incorrect character in a green position
 */
-bool Word::checkGreens(std::vector<char> greens) const
+bool Word::checkGreens(const std::vector<char> &greens) const
 {
     for (int i = 0; i < 5; i++)
     {
@@ -70,7 +70,7 @@ Helper function for update
 Returns true if a word should be eliminated based on not
 including a character that is known in the word.
 */
-bool Word::checkYellows(std::set<char> yellows) const
+bool Word::checkYellows(const std::set<char> &yellows) const
 {
     std::set<char>::iterator itr;
     for (itr = yellows.begin(); itr != yellows.end(); itr++)
@@ -96,7 +96,7 @@ checkGrays
 Helper function for update
 Returns true if a character is in grays but not in yellows
 */
-bool Word::checkGrays(std::set<char> grays, std::set<char> yellows) const
+bool Word::checkGrays(const std::set<char> &grays, const std::set<char> &yellows) const
 {
     for (int i = 0; i < 5; i++)
     {
@@ -114,7 +114,7 @@ checkWrongPosition
 Helper function for update
 Returns true if there is a character that is yellow but in the wrong position
 */
-bool Word::checkWrongPosition(std::vector<std::set<char>> wrongPos) const{
+bool Word::checkWrongPosition(const std::vector<std::set<char>> &wrongPos) const{
     for ( int i = 0; i<5; i++ ){
         if ( wrongPos[i].find(word[i]) != wrongPos[i].end() ){
             return true;
