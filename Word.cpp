@@ -41,7 +41,7 @@ bool Word::checkWord(CharInfo charinfo) const
 getWord
 Returns the word
 */
-std::string Word::getWord() const
+const std::string &Word::getWord() const
 {
     return word;
 }

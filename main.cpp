@@ -26,11 +26,13 @@ int main()
         std::cout << "Best guess: ";
         if (answers.length() <= 10)
         {
-            std::cout << answers.getBestWord(vf) << '\n';
+            std::string guessWord = answers.getBestWord(vf);
+            std::cout << guessWord << '\n';
         }
         else
         {
-            std::cout << guesses.getBestWord(vf) << '\n';
+            std::string guessWord = guesses.getBestWord(vf);
+            std::cout << guessWord << '\n';
         }
         g.inputInfo();
         ci.update(g);

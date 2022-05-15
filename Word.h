@@ -31,7 +31,7 @@ public:
     getWord
     Returns the word
     */
-    std::string getWord() const;
+    const std::string &getWord() const;
 
 private:
     std::string word;
