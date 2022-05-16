@@ -30,20 +30,20 @@ int playRound(std::string ans, WordList guesses, WordList answers)
         }
         else
         {
-            auto startGBW = std::chrono::high_resolution_clock::now();
+            //auto startGBW = std::chrono::high_resolution_clock::now();
             bestGuess = guesses.getBestWord(vf);
-            auto stopGBW = std::chrono::high_resolution_clock::now();
-            auto durationGBW = std::chrono::duration_cast<std::chrono::microseconds>(stopGBW-startGBW);
-            std::cout << "getbestword: " << durationGBW.count() << '\n';
+            //auto stopGBW = std::chrono::high_resolution_clock::now();
+            //auto durationGBW = std::chrono::duration_cast<std::chrono::microseconds>(stopGBW-startGBW);
+            //std::cout << "getbestword: " << durationGBW.count() << '\n';
         }
         g.inputInfo(bestGuess, ans);
         ci.update(g);
-        auto startUW = std::chrono::high_resolution_clock::now();
+        //auto startUW = std::chrono::high_resolution_clock::now();
         guesses.updateWords(ci);
         answers.updateWords(ci);
-        auto stopUW = std::chrono::high_resolution_clock::now();
-        auto durationUW = std::chrono::duration_cast<std::chrono::microseconds>(stopUW-startUW);
-        std::cout << "update words: " << durationUW.count() << '\n';
+        //auto stopUW = std::chrono::high_resolution_clock::now();
+        //auto durationUW = std::chrono::duration_cast<std::chrono::microseconds>(stopUW-startUW);
+        //std::cout << "update words: " << durationUW.count() << '\n';
         round++;
     }
     return round;
@@ -58,9 +58,9 @@ int main()
     int totalRounds = 0;
     int overSix = 0;
     int maxGuesses = 0;
-    // for ( auto &word : wordList ){
-    for ( int i = 0; i<20; i++ ){
-        Word word = wordList[i];
+    for ( auto &word : wordList ){
+    // for ( int i = 0; i<20; i++ ){
+        // Word word = wordList[i];
         // std::cout << word.getWord() << '\n';
         numWords++;
         int guesses = playRound(word.getWord(), guess_words, words);
