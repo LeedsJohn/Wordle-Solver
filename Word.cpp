@@ -27,14 +27,11 @@ off of current information
 */
 bool Word::checkWord(CharInfo charinfo) const
 {
-    if (checkGreens(charinfo.getGreens()) ||
-        checkYellows(charinfo.getYellows()) ||
-        checkGrays(charinfo.getGrays(), charinfo.getYellows()) || 
-        checkWrongPosition(charinfo.getWrongPosition()))
-    {
-        return true;
-    }
-    return false;
+    // return (checkGreens(charinfo.getGreens()) ||
+    //     checkYellows(charinfo.getYellows()) ||
+    //     checkGrays(charinfo.getGrays(), charinfo.getYellows()) || 
+    //     checkWrongPosition(charinfo.getWrongPosition()));
+    
 }
 
 /*
@@ -81,6 +78,7 @@ bool Word::checkYellows(const std::set<char> &yellows) const
             if (word[i] == *itr)
             {
                 flag = true;
+                break;
             }
         }
         if (!flag)
