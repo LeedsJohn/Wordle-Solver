@@ -71,7 +71,7 @@ int main()
         if ( guesses > 6 ){
             std::cout << "lost - " << guesses << " guesses. Word: " << word.getWord() << '\n';
         }
-        if ( numWords%50 == 0 ){
+        if ( numWords%500 == 0 ){
             std::cout << numWords << '\t' << totalRounds << '\n';
         }
         //std::cout << "Word: " << word.getWord() << "\tnumWords: " << numWords << "\ttotalRounds: " << totalRounds << '\n';
