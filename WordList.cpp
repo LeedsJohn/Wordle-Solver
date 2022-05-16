@@ -48,22 +48,22 @@ int WordList::updateWords(const CharInfo &charinfo)
 getBestWord
 Returns the word with the highest word value
 */
-const std::string &WordList::getBestWord(const ValueFinder &evaluator) const
+const std::string WordList::getBestWord(const ValueFinder &evaluator) const
 {
     int maxScore = 0;
-    Word bestWord = words[0];
-    // TODO: change to using an iterator?
-    for (size_t i = 0; i < words.size(); i++)
+    std::string bestWord = words[0].getWord();
+    auto it = words.begin();
+    while (it != words.end())
     {
-        Word curWord = words[i];
-        int curScore = evaluator.scoreWord(curWord.getWord());
+        int curScore = evaluator.scoreWord(it->getWord());
         if (curScore > maxScore)
         {
             maxScore = curScore;
-            bestWord = words[i];
+            bestWord = it->getWord();
         }
+        it++;
     }
-    return bestWord.getWord();
+    return bestWord;
 }
 
 /*
