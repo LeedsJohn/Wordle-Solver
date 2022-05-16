@@ -637,10 +637,7 @@ void analysis()
     int rounds = 0;
     int data[9] = {0};
     int sum = 0;
-    int maxSum;
-    cout << "Enter max sum: ";
-    cin >> maxSum;
-    while (word != NULL && sum < maxSum)
+    while (word != NULL)
     {
         rounds++;
         int guesses = autoPlayGame(word->getWord());
