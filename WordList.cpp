@@ -27,19 +27,18 @@ Removes unusable words from words
 */
 int WordList::updateWords(const CharInfo &charinfo)
 {
+    std::vector<Word> oldWords = words;
+    words.clear();
     int count = 0;
-    auto it = words.begin();
-    while (it != words.end())
+    auto it = oldWords.begin();
+    while (it != oldWords.end())
     {
-        if (it->checkWord(charinfo))
+        if (!it->checkWord(charinfo))
         { // TODO: this might not work :D
             count++;
-            it = words.erase(it);
+            words.push_back(*it);
         }
-        else
-        {
-            it++;
-        }
+        it++;
     }
     return count;
 }
