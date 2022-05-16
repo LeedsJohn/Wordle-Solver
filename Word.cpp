@@ -27,11 +27,10 @@ off of current information
 */
 bool Word::checkWord(CharInfo charinfo) const
 {
-    // return (checkGreens(charinfo.getGreens()) ||
-    //     checkYellows(charinfo.getYellows()) ||
-    //     checkGrays(charinfo.getGrays(), charinfo.getYellows()) || 
-    //     checkWrongPosition(charinfo.getWrongPosition()));
-    
+    return (checkGreens(charinfo.getGreens()) ||
+        checkYellows(charinfo.getYellows()) ||
+        checkGrays(charinfo.getGrays(), charinfo.getYellows()) || 
+        checkWrongPosition(charinfo.getWrongPosition()));
 }
 
 /*
