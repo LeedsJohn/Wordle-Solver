@@ -21,7 +21,7 @@ int main()
     while (answers.length() != 0 && g.getResult() != "GGGGG")
     {
         ValueFinder vf(answers.getWords());
-        std::cout << "Round " << round << ":\n";
+        std::cout << "-------------------\nRound " << round+1 << ":\n";
         std::cout << "Possible guesses: " << guesses.length() << "\nPossible answers: " << answers.length() << '\n';
         std::cout << "Best guess: ";
         if (answers.length() <= 10)
