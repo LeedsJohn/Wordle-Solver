@@ -16,7 +16,7 @@ Test.o: WordList.o test.cpp
 
 WordList.o: ValueFinder.o WordList.h WordList.cpp
 	g++ -c WordList.cpp -o WordList.o
-ValueFinder.o: Word.o ValueFinder.h ValueFinder.cpp
+ValueFinder.o: Word.o LinkedList.o ValueFinder.h ValueFinder.cpp
 	g++ -c ValueFinder.cpp -o ValueFinder.o
 Word.o: CharInfo.o Word.cpp Word.h
 	g++ -c Word.cpp -o Word.o
@@ -25,5 +25,10 @@ CharInfo.o: Guess.o CharInfo.h CharInfo.cpp
 Guess.o: Guess.cpp Guess.h
 	g++ -c Guess.cpp -o Guess.o
 
+LinkedList.o: Node.o LinkedList.h LinkedList.cpp
+	g++ -c LinkedList.cpp -o LinkedList.o
+Node.o: Node.h Node.cpp
+	g++ -c Node.cpp -o Node.o
+
 clean:
-	rm *.o test solver
+	rm *.o test solver analysis

@@ -1,47 +1,61 @@
 // John Leeds
 // 5/19/2022
 // LinkedList.cpp
-// Header file for class LinkedList
-
-#ifndef LINKEDLIST_HDR
-#define LINKEDLIST_HDR
+// Implementation file for class LinkedList
 
 #include "Node.h"
+#include "LinkedList.h"
 
-class LinkedList
+LinkedList::LinkedList()
 {
-public:
-    LinkedList()
+    head = nullptr;
+}
+
+void LinkedList::add(Word &newWord)
+{
+    incrementLength();
+    Node *newNode = new Node(newWord);
+    newNode->next = head;
+    head = newNode;
+}
+
+void LinkedList::erase(Node *prevNode)
+{
+    decrementLength();
+    if (!prevNode)
     {
-        head = nullptr;
+        eraseHead();
+        return;
     }
+    eraseMid(prevNode);
+}
 
-    void add(Node *n)
-    {
-        n->next = head;
-        head = n;
-    }
+Node *LinkedList::getHead() const
+{
+    return head;
+}
 
-    void erase(Node *prevNode)
-    {
-        if (!prevNode)
-        {
-            eraseHead();
-            return;
-        }
-        eraseMid(prevNode);
-    }
+int LinkedList::getLength() const
+{
+    return length;
+}
 
-private:
-    Node *head;
+void LinkedList::eraseHead()
+{
+    head = head->next;
+}
 
-    void eraseHead(){
-        head = head->next;
-    }
+void LinkedList::eraseMid(Node *prevNode)
+{
+    prevNode->next = prevNode->next->next;
+}
 
-    void eraseMid(Node *prevNode){
-        prevNode->next = prevNode->next->next;
-    }
-};
+void LinkedList::incrementLength()
+{
+    length++;
+}
 
-#endif
+void LinkedList::decrementLength()
+{
+    length--;
+}

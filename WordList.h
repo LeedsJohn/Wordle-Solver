@@ -6,10 +6,11 @@
 #ifndef WORDLIST_HDR
 #define WORDLIST_HDR
 #include <string>
-#include <vector>
+#include "LinkedList.h"
 #include "CharInfo.h"
 #include "ValueFinder.h"
 #include "Word.h"
+
 
 class WordList
 {
@@ -37,7 +38,7 @@ public:
     getWords
     Returns the wordList
     */
-    const std::vector<Word> &getWords() const;
+    const LinkedList &getWords() const;
 
     /*
     length
@@ -46,7 +47,7 @@ public:
     int length() const;
 
 private:
-    std::vector<Word> words;
+    LinkedList words;
 
     /*
     readFile

@@ -8,12 +8,14 @@
 #include <vector>
 #include "Word.h"
 #include "ValueFinder.h"
+#include "LinkedList.h"
+#include "Node.h"
 
 /*
 Constructor
 */
-ValueFinder::ValueFinder(const std::vector<Word> &words){
-    generateFrequencies(words);
+ValueFinder::ValueFinder(LinkedList words){
+    generateFrequencies(words.getHead());
 }
 
 /*
@@ -21,16 +23,17 @@ generateFrequencies
 Takes a word list and determines how frequently a character occurs
 and how many words would share a green
 */
-void ValueFinder::generateFrequencies(const std::vector<Word> &words)
+void ValueFinder::generateFrequencies(Node* traverse)
 {
-    for (size_t i = 0; i < words.size(); i++)
+    while (traverse)
     {
-        std::string curWord = words[i].getWord();
+        std::string curWord = traverse->val.getWord();
         for (int j = 0; j < 5; j++)
         {
             greens[j][curWord[j]]++;
             yellows[curWord[j]]++;
         }
+        traverse = traverse->next;
     }
 }
 

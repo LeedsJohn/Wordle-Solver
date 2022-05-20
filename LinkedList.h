@@ -13,16 +13,25 @@ class LinkedList
 public:
     LinkedList();
 
-    void add(Node *n);
+    void add(Word &newWord);
 
     void erase(Node *prevNode);
 
+    Node* getHead() const;
+
+    int getLength() const;
+
 private:
     Node *head;
+    int length;
 
     void eraseHead();
 
     void eraseMid(Node *prevNode);
+
+    void incrementLength();
+
+    void decrementLength();
 };
 
 #endif

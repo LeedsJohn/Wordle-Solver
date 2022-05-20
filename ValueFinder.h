@@ -8,6 +8,8 @@
 #include <string>
 #include <map>
 #include "Word.h"
+#include "Node.h"
+#include "LinkedList.h"
 
 class ValueFinder
 {
@@ -15,14 +17,14 @@ public:
     /*
     Constructor
     */
-    ValueFinder(const std::vector<Word> &words);
+    ValueFinder(LinkedList words);
 
     /*
     generateFrequencies
     Takes a word list and determines how frequently a character occurs
     and how many words would share a green
     */
-    void generateFrequencies(const std::vector<Word> &words);
+    void generateFrequencies(Node* traverse);
 
     /*
     scoreWord
