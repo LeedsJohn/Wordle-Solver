@@ -11,6 +11,15 @@
 #include "Word.h"
 
 /*
+Default constructor
+Sets the word as "*****"
+*/
+Word::Word()
+{
+    word = "*****";
+}
+
+/*
 Constructor
 Receives a 5 letter word
 */
@@ -28,9 +37,9 @@ off of current information
 bool Word::checkWord(CharInfo charinfo) const
 {
     return (checkGreens(charinfo.getGreens()) ||
-        checkYellows(charinfo.getYellows()) ||
-        checkGrays(charinfo.getGrays(), charinfo.getYellows()) || 
-        checkWrongPosition(charinfo.getWrongPosition()));
+            checkYellows(charinfo.getYellows()) ||
+            checkGrays(charinfo.getGrays(), charinfo.getYellows()) ||
+            checkWrongPosition(charinfo.getWrongPosition()));
 }
 
 /*
@@ -111,9 +120,12 @@ checkWrongPosition
 Helper function for update
 Returns true if there is a character that is yellow but in the wrong position
 */
-bool Word::checkWrongPosition(const std::vector<std::set<char>> &wrongPos) const{
-    for ( int i = 0; i<5; i++ ){
-        if ( wrongPos[i].find(word[i]) != wrongPos[i].end() ){
+bool Word::checkWrongPosition(const std::vector<std::set<char>> &wrongPos) const
+{
+    for (int i = 0; i < 5; i++)
+    {
+        if (wrongPos[i].find(word[i]) != wrongPos[i].end())
+        {
             return true;
         }
     }

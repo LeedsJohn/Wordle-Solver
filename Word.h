@@ -14,6 +14,12 @@ class Word
 {
 public:
     /*
+    Default constructor
+    Sets the word as "*****"
+    */
+   Word();
+
+    /*
     Constructor
     Receives a 5 letter word
     */
