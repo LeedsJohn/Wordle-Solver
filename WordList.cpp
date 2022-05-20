@@ -40,7 +40,7 @@ int WordList::updateWords(const CharInfo &charinfo)
             traverse = traverse->next;
         }
     }
-    return words.getLength() - oldLength;
+    return oldLength - words.getLength();
 
     // std::vector<Word> oldWords = words;
     // words.clear();

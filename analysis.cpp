@@ -9,14 +9,16 @@
 #include "WordList.h"
 #include "ValueFinder.h"
 #include "CharInfo.h"
+#include "LinkedList.h"
+#include "Node.h"
 
 std::string GUESS_PATH = "data/guesses.txt";
 std::string ANSWER_PATH = "data/answers.txt";
 
-int playRound(std::string ans, WordList guesses, WordList answers)
+int playRound(std::string ans)
 {
-    // WordList guesses(GUESS_PATH);
-    // WordList answers(ANSWER_PATH);
+    WordList guesses(GUESS_PATH);
+    WordList answers(ANSWER_PATH);
     CharInfo ci;
     Guess g;
     int round = 0;
@@ -51,19 +53,16 @@ int playRound(std::string ans, WordList guesses, WordList answers)
 
 int main()
 {
-    WordList guess_words(GUESS_PATH);
     WordList words(ANSWER_PATH);
-    std::vector<Word> wordList = words.getWords();
+    Node* traverse = words.getWords().getHead();
     int numWords = 0;
     int totalRounds = 0;
     int overSix = 0;
     int maxGuesses = 0;
-    for ( auto &word : wordList ){
-    // for ( int i = 0; i<20; i++ ){
-        // Word word = wordList[i];
-        // std::cout << word.getWord() << '\n';
+    while ( traverse ){
+        Word word = traverse->val;
         numWords++;
-        int guesses = playRound(word.getWord(), guess_words, words);
+        int guesses = playRound(word.getWord());
         totalRounds += guesses;
         if ( guesses > maxGuesses ){
             maxGuesses = guesses;
@@ -74,6 +73,7 @@ int main()
         if ( numWords%500 == 0 ){
             std::cout << numWords << '\t' << totalRounds << '\n';
         }
+        traverse = traverse->next;
         //std::cout << "Word: " << word.getWord() << "\tnumWords: " << numWords << "\ttotalRounds: " << totalRounds << '\n';
         // break;
     }

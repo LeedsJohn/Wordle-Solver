@@ -9,6 +9,7 @@
 LinkedList::LinkedList()
 {
     head = nullptr;
+    length = 0;
 }
 
 void LinkedList::add(Word &newWord)
